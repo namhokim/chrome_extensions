@@ -1,19 +1,19 @@
 {
-	"name": "Hello Extensions",
-	"description" : "Base Level Extension",
+	"name": "Hours easy copy Extensions",
+	"description" : "Base  Level Extension",
 	"version": "1.0",
 	"manifest_version": 2,
     "browser_action": {
-      "default_popup": "hello.html",
-      "default_icon": "hello_extensions.png"
+      "default_popup": "hours_easy_copy.html",
+      "default_icon": "hours_easy_copy.png"
     },
     "commands": {
       "_execute_browser_action": {
         "suggested_key": {
-          "default": "Ctrl+Shift+F",
-          "mac": "MacCtrl+Shift+F"
+          "default": "Ctrl+Shift+T",
+          "mac": "MacCtrl+Shift+T"
         },
-        "description": "Opens hello.html"
+        "description": "Opens hours_easy_copy.html"
       }
     }
 }
