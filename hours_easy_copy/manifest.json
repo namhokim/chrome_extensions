@@ -1,19 +1,33 @@
 {
-	"name": "Hours easy copy Extensions",
-	"description" : "Base  Level Extension",
-	"version": "1.0",
-	"manifest_version": 2,
-    "browser_action": {
-      "default_popup": "hours_easy_copy.html",
-      "default_icon": "hours_easy_copy.png"
-    },
-    "commands": {
-      "_execute_browser_action": {
-        "suggested_key": {
-          "default": "Ctrl+Shift+T",
-          "mac": "MacCtrl+Shift+T"
-        },
-        "description": "Opens hours_easy_copy.html"
+   "name":"Hours easy copy Extensions",
+   "description":"Base  Level Extension",
+   "version":"1.0",
+   "permissions":[
+      "activeTab",
+      "declarativeContent",
+      "storage"
+   ],
+   "background":{
+      "scripts":[
+         "background.js"
+      ],
+      "persistent":false
+   },
+   "page_action":{
+      "default_popup":"popup.html",
+      "default_icon":{
+         "16":"images/get_started16.png",
+         "32":"images/get_started32.png",
+         "48":"images/get_started48.png",
+         "128":"images/get_started128.png"
       }
-    }
+   },
+   "icons":{
+      "16":"images/hours16.png",
+      "32":"images/hours32.png",
+      "48":"images/hours48.png",
+      "128":"images/hours128.png"
+   },
+   "options_page":"options.html",
+   "manifest_version":2
 }
