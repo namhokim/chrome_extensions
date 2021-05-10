@@ -1,6 +1,6 @@
 {
-  "name": "Hello Extensions",
-  "description": "Base Level Extension",
+  "name": "Remote Work",
+  "description": "Remote Work Submission",
   "version": "1.0",
   "manifest_version": 2,
   "browser_action": {
@@ -10,5 +10,10 @@
     "activeTab",
     "http://*/*",
     "https://*/*"
-  ]
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
 }
