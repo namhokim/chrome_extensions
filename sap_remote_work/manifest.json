@@ -3,7 +3,10 @@
   "description": "Remote Work Submission",
   "version": "1.0",
   "manifest_version": 3,
-  "permissions": ["cookies"],
+  "permissions": [
+    "cookies",
+    "http://localhost/"
+  ],
   "host_permissions": ["<all_urls>"],
   "action": {
     "default_popup": "index.html"

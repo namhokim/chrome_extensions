@@ -3,15 +3,14 @@
     <script src="popup.js" type="module"></script>
 </head>
 <body>
-<h1>Hello Remote Work!</h1>
-<label for="sessionId">JSESSIONID:</label>
-<textarea id="sessionId" rows="5" cols="33">
-Maybe not SuccessFactor...
-</textarea>
+<h1>Remote Work Helper</h1>
+<h2 id="message">Prepare for condition...</h2>
 
-<label for="ajaxKey">ajaxSecKey:</label>
-<textarea id="ajaxKey" rows="5" cols="33">
-Maybe not SuccessFactor...
-</textarea>
+<div id="control-row" hidden>
+    <label for="dateStart">Date:</label>
+    <input type="text" id="dateStart">
+    <br>
+    <button id="go">Submit</button>
+</div>
 </body>
 </html>
