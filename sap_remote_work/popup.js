@@ -81,17 +81,25 @@ function getToday(){
     return year + "-" + month + "-" + day;
 }
 
+
 function getTitle() {
     chrome.storage.local.get(['ajaxKey', 'startDate', 'endDate', 'remoteType'], function (result) {
 
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
             if (xhr.readyState === xhr.DONE ) {
-                if (xhr.response.indexOf('success') === -1) {
-                    console.log(xhr.response);
-                    alert('failed. (see console.log)');
+                let response = xhr.responseText;
+                if (response.indexOf('success') === -1) {
+                    console.log(response);
+                    let msg = response.match(/"failure";\W+s\d\[0\]="(.+)\\n"/)[1];
+
+                    const regexUnicode = /\\u([\d\w]{4})/gi;
+                    let unicodeString = msg.replace(regexUnicode, function (match, grp) {
+                        return String.fromCharCode(parseInt(grp, 16));
+                    });
+                    alert(unescape(unicodeString));
                 } else {
-                    alert('success.');
+                    alert('성공!');
                 }
             }
         };
