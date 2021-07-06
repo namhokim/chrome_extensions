@@ -1,7 +1,11 @@
 const sessionId = document.getElementById("sessionId");
 const ajaxKey = document.getElementById("ajaxKey");
+// action
 const go = document.getElementById("go");
+// input
+const remoteType = document.getElementById("remoteType");
 const dateStart = document.getElementById("dateStart");
+// output
 const message = document.getElementById("message");
 const controlRow = document.getElementById("control-row");
 
@@ -59,7 +63,7 @@ async function handleFormSubmit(event) {
             start: dateStart.value,
             end: dateStart.value
         },
-        type: 'RemoteWork2-1',
+        type: remoteType.value,
         ajaxKey: akey
     };
 
