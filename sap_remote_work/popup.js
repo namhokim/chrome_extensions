@@ -45,7 +45,7 @@ var akey = '';
                 xhr.open('GET', 'https://hcm44.sapsf.com/sf/start/');
                 xhr.send();
             } else {
-                setMessage("Maybe not SuccessFactor.");
+                setMessage('Maybe not <a href="https://hcm44.sapsf.com/sf/home?company=yanolja#Shell-home">SuccessFactor</a>.');
             }
         }
     }
