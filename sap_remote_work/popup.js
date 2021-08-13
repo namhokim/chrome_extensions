@@ -22,7 +22,7 @@ var akey = '';
 
         const cookies = await chrome.cookies.getAll({domain});
         if (cookies.length === 0) {
-            setMessage("Maybe not SuccessFactor..")
+            createNewTabForRemoteWork();
         } else {
             let jsessionIdObj = cookies.filter(obj => obj.name === 'JSESSIONID');
             if (jsessionIdObj !== undefined && jsessionIdObj.length > 0) {
@@ -45,7 +45,7 @@ var akey = '';
                 xhr.open('GET', 'https://hcm44.sapsf.com/sf/start/');
                 xhr.send();
             } else {
-                setMessage('Maybe not <a href="https://hcm44.sapsf.com/sf/home?company=yanolja#Shell-home">SuccessFactor</a>.');
+                createNewTabForRemoteWork();
             }
         }
     }
@@ -86,7 +86,7 @@ function getToday(){
 }
 
 
-function getTitle() {
+function requestRemoteWorkContentScript() {
     chrome.storage.local.get(['ajaxKey', 'startDate', 'endDate', 'remoteType'], function (result) {
 
         var xhr = new XMLHttpRequest();
@@ -160,7 +160,7 @@ function requestRemoteWork(param, callback) {
             chrome.scripting.executeScript(
                 {
                     target: {tabId: tabs[0].id},
-                    function: getTitle,
+                    function: requestRemoteWorkContentScript,
                 },
                 (injectionResults) => {
                     callback('Triggered!');
@@ -177,4 +177,11 @@ function setMessage(str) {
 function clearMessage() {
     message.hidden = true;
     message.textContent = "";
+}
+
+
+function createNewTabForRemoteWork() {
+    chrome.tabs.create({
+        url: 'https://hcm44.sapsf.com/sf/home?company=yanolja#Shell-home'
+    });
 }
