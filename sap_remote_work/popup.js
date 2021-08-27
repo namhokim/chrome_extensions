@@ -20,6 +20,11 @@ var akey = '';
         let url = new URL(tab.url);
         let domain = url.hostname;
 
+        if (!domain.startsWith('hcm44.sapsf.com')) {
+            createNewTabForRemoteWork();
+            return;
+        }
+
         const cookies = await chrome.cookies.getAll({domain});
         if (cookies.length === 0) {
             createNewTabForRemoteWork();
@@ -32,7 +37,6 @@ var akey = '';
                         if (xhr.status === 200) {
                             const regex = /var ajaxSecKey="(.*)";var/g;
                             let result = regex.exec(xhr.responseText);
-
                             akey = result[1];
 
                             setMessage("Ready for work!");
