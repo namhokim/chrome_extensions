@@ -20,7 +20,7 @@ var akey = '';
         let url = new URL(tab.url);
         let domain = url.hostname;
 
-        if (!domain.startsWith('hcm44.sapsf.com')) {
+        if (!domain.startsWith('hcm44.sapsf.com') || !url.pathname.toLowerCase().includes('timeoff')) {
             createNewTabForRemoteWork();
             return;
         }
@@ -91,6 +91,8 @@ function getToday(){
 
 
 function requestRemoteWorkContentScript() {
+    let userId = document.getElementById("paramsUserIdField").value;
+
     chrome.storage.local.get(['ajaxKey', 'startDate', 'endDate', 'remoteType'], function (result) {
 
         var xhr = new XMLHttpRequest();
@@ -123,7 +125,7 @@ scriptSessionId=80A8BD291A8E635A37D57F13E5D1F423568
 c0-scriptName=tlmTimeOffControllerProxy
 c0-methodName=createAbsence
 c0-id=0
-c0-e1=string:10218
+c0-e1=string:${userId}
 c0-e2=string:${result['remoteType']}
 c0-e3=string:${result['startDate']}
 c0-e4=string:${result['endDate']}
@@ -186,6 +188,6 @@ function clearMessage() {
 
 function createNewTabForRemoteWork() {
     chrome.tabs.create({
-        url: 'https://hcm44.sapsf.com/sf/home?company=yanolja#Shell-home'
+        url: 'https://hcm44.sapsf.com/sf/timeoff'
     });
 }
