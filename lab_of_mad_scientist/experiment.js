@@ -9,10 +9,13 @@ const message = document.getElementById("message");
                 function: requestRemoteWorkContentScript,
             },
             (injectionResults) => {
-                for (const frameResult of injectionResults) {
-                    const {frameId, result} = frameResult;
-                    console.log(`Frame ${frameId} result:`, result);
-                    setMessage(result);
+                try {
+                    for (const frameResult of injectionResults) {
+                        const {frameId, result} = frameResult;
+                        setMessage(result);
+                    }
+                } catch(e) {
+                    setMessage("Not applicable");
                 }
             });
     });
