@@ -7,7 +7,7 @@
     "scripting",
     "tabs"
   ],
-  "host_permissions": ["<all_urls>"],
+  "host_permissions": ["https://*.kmong.run/*"],
   "action": {
     "default_popup": "index.html"
   },
